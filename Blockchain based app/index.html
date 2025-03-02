@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Voting DApp</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/4.0.1/web3.min.js"></script>
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; margin: 20px;">
+
+    <h1 style="color: #2c3e50;">🗳️ Blockchain Voting System</h1>
+
+    <!-- Connect Wallet -->
+    <button id="connectButton" style="background-color: #28a745; color: white; padding: 10px 15px; border: none; cursor: pointer;">
+        Connect Wallet
+    </button>
+    <p><strong>Connected Wallet:</strong> <span id="walletAddress" style="color: #e74c3c;">Not Connected</span></p>
+
+    <!-- Create Poll Section -->
+    <div style="background: white; padding: 15px; margin: 10px auto; border-radius: 10px; max-width: 500px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #3498db;">Create a New Poll</h2>
+        <input type="text" id="question" placeholder="Enter Poll Question" style="width: 90%; padding: 10px; margin: 5px;">
+        <input type="text" id="option1" placeholder="Option 1" style="width: 90%; padding: 10px; margin: 5px;">
+        <input type="text" id="option2" placeholder="Option 2" style="width: 90%; padding: 10px; margin: 5px;">
+        <input type="number" id="duration" placeholder="Duration (seconds)" style="width: 90%; padding: 10px; margin: 5px;">
+        <button onclick="createPoll()" style="background-color: #f39c12; color: white; padding: 10px 15px; border: none; cursor: pointer;">
+            Create Poll
+        </button>
+    </div>
+
+    <!-- Poll List -->
+    <div style="background: white; padding: 15px; margin: 10px auto; border-radius: 10px; max-width: 500px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #2ecc71;">Active Polls</h2>
+        <select id="pollSelect" style="width: 90%; padding: 10px; margin: 5px;">
+            <option value="">Select a Poll</option>
+        </select>
+        <div id="pollDetails" style="text-align: left; margin-top: 10px;"></div>
+    </div>
+
+    <!-- Voting Section -->
+    <div style="background: white; padding: 15px; margin: 10px auto; border-radius: 10px; max-width: 500px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #9b59b6;">Vote in a Poll</h2>
+        <select id="votePollSelect" style="width: 90%; padding: 10px; margin: 5px;">
+            <option value="">Select a Poll</option>
+        </select>
+        <select id="voteOptionSelect" style="width: 90%; padding: 10px; margin: 5px;">
+            <option value="">Select an Option</option>
+        </select>
+        <button onclick="vote()" style="background-color: #e74c3c; color: white; padding: 10px 15px; border: none; cursor: pointer;">
+            Vote
+        </button>
+    </div>
+
+    <div id="message" style="font-weight: bold; color: #e74c3c;"></div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
